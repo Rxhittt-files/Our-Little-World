@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Sundari 💗</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #ffe4ec, #ffc2d7, #fce7f3);
+    color: #8b3156;
+    overflow-x: hidden;
+    text-align: center;
+}
+
+.container {
+    width: 90%;
+    max-width: 650px;
+    margin: 45px auto;
+    padding: 35px 22px;
+    background: rgba(255,255,255,0.48);
+    border: 1px solid rgba(255,255,255,0.8);
+    border-radius: 30px;
+    box-shadow: 0 15px 50px rgba(173, 54, 102, 0.15);
+    backdrop-filter: blur(15px);
+    animation: appear 1s ease;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.top-heart {
+    font-size: 45px;
+    animation: heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat {
+    50% { transform: scale(1.18); }
+}
+
+h1 {
+    font-family: Georgia, serif;
+    font-size: clamp(30px, 7vw, 45px);
+    margin: 15px 0;
+    color: #c43d75;
+}
+
+.subtitle {
+    font-size: 15px;
+    color: #a14a70;
+    margin-bottom: 25px;
+}
+
+.letter {
+    background: rgba(255,255,255,0.65);
+    border-radius: 20px;
+    padding: 25px 20px;
+    line-height: 1.9;
+    font-size: 16px;
+    text-align: left;
+    box-shadow: 0 5px 20px #e9a4c333;
+}
+
+.letter h2 {
+    text-align: center;
+    margin-bottom: 15px;
+    color: #c43d75;
+    font-family: Georgia, serif;
+}
+
+.signature {
+    text-align: right;
+    margin-top: 15px;
+    color: #c43d75;
+    font-weight: bold;
+}
+
+.gift-section {
+    margin-top: 30px;
+    padding: 20px;
+}
+
+.gift-section p {
+    margin: 12px 0;
+}
+
+.gift {
+    font-size: 85px;
+    cursor: pointer;
+    display: inline-block;
+    transition: 0.3s;
+    animation: giftFloat 2s infinite ease-in-out;
+}
+
+@keyframes giftFloat {
+    50% { transform: translateY(-10px) rotate(4deg); }
+}
+
+.gift:hover {
+    transform: scale(1.15);
+}
+
+button {
+    background: linear-gradient(135deg, #ff77a8, #e64980);
+    color: white;
+    border: none;
+    padding: 14px 25px;
+    border-radius: 30px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 7px 20px #e6498040;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.06);
+    box-shadow: 0 10px 25px #e6498060;
+}
+
+.footer {
+    margin-top: 25px;
+    font-size: 13px;
+    color: #a14a70;
+}
+
+/* Surprise overlay */
+
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(91, 24, 54, 0.65);
+    backdrop-filter: blur(12px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    z-index: 10;
+}
+
+.overlay.show {
+    display: flex;
+}
+
+.popup {
+    width: 100%;
+    max-width: 390px;
+    padding: 35px 22px;
+    background: linear-gradient(145deg, #fff0f6, #ffd6e7);
+    border: 2px solid white;
+    border-radius: 28px;
+    box-shadow: 0 20px 70px #5c173b66;
+    animation: pop 0.5s ease;
+    position: relative;
+}
+
+@keyframes pop {
+    from {
+        transform: scale(0.65);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.close {
+    position: absolute;
+    top: 12px;
+    right: 17px;
+    font-size: 25px;
+    cursor: pointer;
+    color: #b83269;
+}
+
+.surprise-title {
+    font-family: Georgia, serif;
+    font-size: 27px;
+    margin: 15px 0;
+}
+
+.kiss {
+    font-size: 100px;
+    margin: 15px 0;
+    display: none;
+}
+
+.kiss.show {
+    display: block;
+    animation: kiss 0.7s ease;
+}
+
+@keyframes kiss {
+    0% { transform: scale(0) rotate(-25deg); }
+    65% { transform: scale(1.3) rotate(10deg); }
+    100% { transform: scale(1) rotate(0); }
+}
+
+.kiss-text {
+    font-family: Georgia, serif;
+    font-size: 29px;
+    color: #d63375;
+    display: none;
+    margin: 15px 0;
+}
+
+.kiss-text.show {
+    display: block;
+    animation: appear 0.7s ease;
+}
+
+.hearts {
+    position: fixed;
+    bottom: -40px;
+    pointer-events: none;
+    z-index: 20;
+    animation: floatUp 4s linear forwards;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) rotate(0);
+        opacity: 0;
+    }
+    15% { opacity: 1; }
+    100% {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        margin: 20px auto;
+        padding: 25px 15px;
+    }
+
+    .letter {
+        padding: 20px 15px;
+        font-size: 15px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="top-heart">💗</div>
+
+    <h1>For My Sundari</h1>
+
+    <p class="subtitle">
+        A little something made with lots of love ✨
+    </p>
+
+    <div class="letter">
+
+        <h2>Dear Tiya 🩷</h2>
+
+        <p>
+            Pata hai, tum mere liye kitni special ho?
+            Shayad main words mein kabhi properly explain
+            na kar paun, but tumhari smile mere din ko
+            aur bhi beautiful bana deti hai. 🥹💗
+        </p>
+
+        <p style="margin-top:15px">
+            Tum meri favourite notification ho,
+            meri favourite person ho aur meri
+            sabse pyaari Sundari ho. 🌷
+        </p>
+
+        <p style="margin-top:15px">
+            Is chhoti si website mein tumhare liye
+            ek little surprise hai. So, meri Sundari,
+            ready ho? 🎀
+        </p>
+
+        <div class="signature">
+            Only for you, Tiya 💋
+        </div>
+
+    </div>
+
+    <div class="gift-section">
+
+        <h2>Your Little Gift 🎁</h2>
+
+        <p>Tap the gift to open your surprise, Sundari!</p>
+
+        <div class="gift" onclick="openGift()">🎁</div>
+
+        <p style="font-size:13px">
+            Made with love, just for you 💗
+        </p>
+
+    </div>
+
+    <div class="footer">
+        Every little thing reminds me of you 🌸
+        <br><br>
+        Forever your biggest admirer 💌
+    </div>
+
+</div>
+
+<!-- Surprise popup -->
+
+<div class="overlay" id="overlay">
+
+    <div class="popup">
+
+        <span class="close" onclick="closeGift()">×</span>
+
+        <div style="font-size:50px">💝</div>
+
+        <h2 class="surprise-title">A Surprise For You!</h2>
+
+        <p id="message">
+            Meri Sundari ke liye ek special gift hai. 🥹
+        </p>
+
+        <br>
+
+        <button id="surpriseBtn" onclick="showKiss()">
+            Open Your Surprise 💗
+        </button>
+
+        <div class="kiss" id="kiss">💋</div>
+
+        <div class="kiss-text" id="kissText">
+            Muaaahhh! 😘
+        </div>
+
+        <p id="finalMessage" style="display:none; line-height:1.8">
+            Ye lo tumhari cute si kiss, Tiya! 🥹💗
+            <br>
+            Sending you lots of love, meri Sundari! 🌷
+        </p>
+
+        <br>
+
+        <button id="againBtn" style="display:none"
+                onclick="showKiss()">
+            One More Kiss? 😚
+        </button>
+
+    </div>
+
+</div>
+
+<script>
+
+function openGift() {
+    document.getElementById("overlay").classList.add("show");
+}
+
+function closeGift() {
+    document.getElementById("overlay").classList.remove("show");
+}
+
+function showKiss() {
+
+    document.getElementById("message").style.display = "none";
+
+    document.getElementById("surpriseBtn").style.display = "none";
+
+    document.getElementById("kiss").classList.remove("show");
+    document.getElementById("kissText").classList.remove("show");
+
+    void document.getElementById("kiss").offsetWidth;
+
+    document.getElementById("kiss").classList.add("show");
+    document.getElementById("kissText").classList.add("show");
+
+    document.getElementById("finalMessage").style.display = "block";
+    document.getElementById("againBtn").style.display = "inline-block";
+
+    createHearts(18);
+}
+
+function createHearts(amount) {
+
+    let emojis = ["💗", "💕", "💖", "💘", "🌸", "💋"];
+
+    for (let i = 0; i < amount; i++) {
+
+        let heart = document.createElement("div");
+
+        heart.className = "hearts";
+
+        heart.innerHTML = emojis[
+            Math.floor(Math.random() * emojis.length)
+        ];
+
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.fontSize = (20 + Math.random() * 25) + "px";
+        heart.style.animationDuration = (3 + Math.random() * 3) + "s";
+
+        document.body.appendChild(heart);
+
+        setTimeout(function() {
+            heart.remove();
+        }, 6500);
+    }
+}
+
+</script>
+
+</body>
+</html>
