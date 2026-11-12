@@ -1,0 +1,421 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Tiya ❤️</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: radial-gradient(circle at top, #ffe9ed, #f8cbd4, #e9aebd);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    font-family: 'Poppins', sans-serif;
+    color: #713444;
+}
+
+.container {
+    text-align: center;
+    width: 100%;
+    padding: 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.tag {
+    font-size: 11px;
+    letter-spacing: 4px;
+    margin-bottom: 15px;
+    color: #a65369;
+}
+
+h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: clamp(42px, 8vw, 65px);
+    font-weight: 400;
+    color: #9d344f;
+    margin-bottom: 8px;
+}
+
+.subtitle {
+    font-size: 12px;
+    letter-spacing: 2px;
+    margin-bottom: 60px;
+    color: #9e5264;
+}
+
+.envelope-area {
+    width: 290px;
+    height: 190px;
+    margin: auto;
+    position: relative;
+    perspective: 1000px;
+    cursor: pointer;
+}
+
+.envelope {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: #f8e1d5;
+    border-radius: 5px;
+    box-shadow: 0 20px 45px #9b52654a;
+}
+
+.back {
+    position: absolute;
+    inset: 0;
+    background: #e9b9aa;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    border-radius: 5px;
+}
+
+.letter {
+    position: absolute;
+    width: 88%;
+    height: 90%;
+    background: #fffaf2;
+    left: 6%;
+    top: 5%;
+    border-radius: 4px;
+    padding: 20px;
+    transition: 1s;
+    z-index: 2;
+    box-shadow: 0 4px 15px #00000015;
+}
+
+.letter p {
+    font-family: 'Great Vibes', cursive;
+    font-size: 27px;
+    color: #a33d56;
+}
+
+.front {
+    position: absolute;
+    inset: 0;
+    background: #eab9ad;
+    clip-path: polygon(0 0, 50% 58%, 100% 0, 100% 100%, 0 100%);
+    border-radius: 5px;
+    z-index: 3;
+}
+
+.flap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60%;
+    background: #f3cfc2;
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+    transform-origin: top;
+    transition: transform 0.8s;
+    z-index: 4;
+}
+
+.seal {
+    position: absolute;
+    top: 44%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 43px;
+    height: 43px;
+    background: #b72e50;
+    border-radius: 50%;
+    z-index: 5;
+    color: white;
+    display: grid;
+    place-items: center;
+    font-size: 21px;
+    box-shadow: 0 4px 10px #76203955;
+    transition: 0.5s;
+}
+
+.envelope.open .flap {
+    transform: rotateX(180deg);
+    z-index: 1;
+}
+
+.envelope.open .seal {
+    opacity: 0;
+}
+
+.envelope.open .letter {
+    transform: translateY(-115px);
+}
+
+.hint {
+    margin-top: 45px;
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: #99465b;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    50% { opacity: 0.4; }
+}
+
+.floating {
+    position: fixed;
+    bottom: -30px;
+    animation: floatUp linear forwards;
+    pointer-events: none;
+}
+
+@keyframes floatUp {
+    to {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+.modal {
+    position: fixed;
+    inset: 0;
+    background: #3d1728b8;
+    backdrop-filter: blur(12px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    padding: 18px;
+}
+
+.modal.show {
+    display: flex;
+}
+
+.letter-paper {
+    width: 100%;
+    max-width: 440px;
+    max-height: 85vh;
+    overflow-y: auto;
+    background: #fff9ef;
+    border-radius: 12px;
+    padding: 35px 27px;
+    box-shadow: 0 20px 70px #0005;
+    animation: appear 0.8s;
+    text-align: left;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: scale(0.8) translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.letter-paper h2 {
+    text-align: center;
+    font-family: 'Great Vibes', cursive;
+    font-size: 42px;
+    color: #ae3e5d;
+    margin-bottom: 22px;
+}
+
+.letter-paper p {
+    font-size: 13px;
+    line-height: 2;
+    color: #74515a;
+    margin-bottom: 15px;
+}
+
+.signature {
+    text-align: right;
+    font-family: 'Great Vibes', cursive;
+    font-size: 30px !important;
+    color: #bd4563 !important;
+}
+
+.close {
+    display: block;
+    margin: 20px auto 0;
+    padding: 11px 25px;
+    border: none;
+    border-radius: 30px;
+    background: #ad3d5c;
+    color: white;
+    cursor: pointer;
+}
+
+@media(max-width: 400px) {
+    .envelope-area {
+        width: 260px;
+        height: 175px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="tag">A LITTLE SOMETHING FOR YOU</div>
+
+    <h1>For My Tiya</h1>
+
+    <div class="subtitle">
+        A LETTER FROM MY HEART ❤️
+    </div>
+
+    <div class="envelope-area" onclick="openLetter()">
+
+        <div class="envelope" id="envelope">
+
+            <div class="back"></div>
+
+            <div class="letter">
+                <p>To My Favourite Person ❤️</p>
+            </div>
+
+            <div class="front"></div>
+
+            <div class="flap"></div>
+
+            <div class="seal">♥</div>
+
+        </div>
+
+    </div>
+
+    <div class="hint">
+        ✦ TOUCH THE ENVELOPE TO OPEN ✦
+    </div>
+
+</div>
+
+<div class="modal" id="modal">
+
+    <div class="letter-paper">
+
+        <h2>My Dearest Tiya ❤️</h2>
+
+        <p>
+            Hey meri pyaari Tiya,
+        </p>
+
+        <p>
+            Pata nahi main apni feelings words mein
+            kitni achhe se express kar paunga, lekin
+            ek baat sach hai — tum meri life ka ek
+            bahut special part ho.
+        </p>
+
+        <p>
+            Tumhari smile, tumhari baatein aur tumhara
+            saath mere ordinary days ko bhi special
+            bana dete hain.
+        </p>
+
+        <p>
+            Main chahta hoon ki tum hamesha khush raho,
+            apne saare dreams complete karo aur kabhi
+            khud ko akela feel na karo.
+        </p>
+
+        <p>
+            Ye chhota sa digital gift sirf ek website
+            nahi hai. Iske har part mein tumhare liye
+            ek special thought chhupa hai.
+        </p>
+
+        <p>
+            Thank you meri life mein hone ke liye. ❤️
+        </p>
+
+        <p class="signature">
+            Always Yours,<br>
+            Rohit ❤️
+        </p>
+
+        <button class="close" onclick="closeLetter()">
+            Close with Love ♥
+        </button>
+
+    </div>
+
+</div>
+
+<script>
+
+let opened = false;
+
+function openLetter() {
+
+    if (opened) return;
+
+    opened = true;
+
+    document.getElementById("envelope")
+        .classList.add("open");
+
+    setTimeout(function() {
+
+        document.getElementById("modal")
+            .classList.add("show");
+
+    }, 1100);
+
+}
+
+function closeLetter() {
+
+    document.getElementById("modal")
+        .classList.remove("show");
+
+    setTimeout(function() {
+
+        document.getElementById("envelope")
+            .classList.remove("open");
+
+        opened = false;
+
+    }, 500);
+
+}
+
+function createHeart() {
+
+    let heart = document.createElement("div");
+
+    heart.className = "floating";
+
+    heart.innerHTML = Math.random() > 0.5 ? "❤️" : "🌸";
+
+    heart.style.left = Math.random() * 100 + "vw";
+
+    heart.style.fontSize = (12 + Math.random() * 20) + "px";
+
+    heart.style.animationDuration = (5 + Math.random() * 5) + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(function() {
+        heart.remove();
+    }, 10000);
+
+}
+
+setInterval(createHeart, 600);
+
+</script>
+
+</body>
+</html>
