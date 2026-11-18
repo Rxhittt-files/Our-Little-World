@@ -1,0 +1,661 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Our Little World 💗</title>
+
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #09060b;
+    color: white;
+    font-family: 'Segoe UI', sans-serif;
+    overflow-x: hidden;
+}
+
+/* BACKGROUND */
+
+body::before {
+    content: "";
+    position: fixed;
+    width: 450px;
+    height: 450px;
+    background: #d52a84;
+    filter: blur(170px);
+    opacity: 0.18;
+    top: -150px;
+    left: -150px;
+    z-index: -1;
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    width: 450px;
+    height: 450px;
+    background: #8534b9;
+    filter: blur(170px);
+    opacity: 0.15;
+    bottom: -150px;
+    right: -150px;
+    z-index: -1;
+}
+
+/* NAVBAR */
+
+.navbar {
+    width: 90%;
+    max-width: 1200px;
+    margin: 25px auto;
+    padding: 17px 25px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    backdrop-filter: blur(25px);
+
+    border-radius: 50px;
+    position: sticky;
+    top: 15px;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: bold;
+    color: #ff8dc8;
+}
+
+.logo span {
+    color: white;
+}
+
+.nav-links {
+    display: flex;
+    gap: 28px;
+}
+
+.nav-links a {
+    color: #d6c8d2;
+    text-decoration: none;
+    font-size: 13px;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: #ff8dc8;
+}
+
+.nav-button {
+    background: #f05ba7;
+    color: white;
+    padding: 10px 19px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 12px;
+}
+
+/* HERO */
+
+.hero {
+    min-height: 82vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.hero-content {
+    max-width: 750px;
+}
+
+.top-tag {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 50px;
+    background: rgba(255,120,190,0.10);
+    border: 1px solid rgba(255,120,190,0.25);
+    color: #ff9acb;
+    font-size: 11px;
+    letter-spacing: 3px;
+    margin-bottom: 30px;
+}
+
+.hero h1 {
+    font-size: clamp(45px, 8vw, 85px);
+    line-height: 1.1;
+    margin-bottom: 25px;
+}
+
+.hero h1 span {
+    color: #ff85bf;
+    text-shadow: 0 0 35px rgba(255,100,180,0.4);
+}
+
+.hero p {
+    color: #c5b5c3;
+    font-size: 15px;
+    line-height: 2;
+    max-width: 550px;
+    margin: auto;
+}
+
+.hero-buttons {
+    margin-top: 35px;
+}
+
+.primary-btn {
+    display: inline-block;
+    padding: 15px 28px;
+    border-radius: 50px;
+    background: linear-gradient(135deg,#ff75b8,#d83c91);
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    margin: 8px;
+    box-shadow: 0 5px 30px rgba(255,80,160,0.25);
+    transition: 0.3s;
+}
+
+.primary-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 35px rgba(255,80,160,0.4);
+}
+
+.secondary-btn {
+    display: inline-block;
+    padding: 14px 28px;
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 50px;
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    margin: 8px;
+    transition: 0.3s;
+}
+
+.secondary-btn:hover {
+    background: rgba(255,255,255,0.1);
+}
+
+/* FLOATING HEARTS */
+
+.heart {
+    position: fixed;
+    bottom: -40px;
+    color: #ff7db8;
+    pointer-events: none;
+    animation: float 9s linear infinite;
+    z-index: -1;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0) rotate(0);
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 0.6;
+    }
+
+    100% {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* SECTION */
+
+.section {
+    width: 90%;
+    max-width: 1150px;
+    margin: 100px auto;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-title h2 {
+    font-size: 38px;
+    margin-bottom: 15px;
+}
+
+.section-title h2 span {
+    color: #ff85bf;
+}
+
+.section-title p {
+    color: #bdaebc;
+    font-size: 14px;
+}
+
+/* CARDS */
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 22px;
+}
+
+.card {
+    padding: 35px 25px;
+    background: rgba(255,255,255,0.055);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 25px;
+    backdrop-filter: blur(20px);
+    transition: 0.4s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    border-color: #ff85bf;
+    background: rgba(255,100,180,0.09);
+}
+
+.card-icon {
+    font-size: 40px;
+    margin-bottom: 22px;
+}
+
+.card h3 {
+    font-size: 19px;
+    margin-bottom: 12px;
+    color: #ff9acb;
+}
+
+.card p {
+    font-size: 13px;
+    line-height: 1.8;
+    color: #bdaebc;
+}
+
+.card a {
+    display: inline-block;
+    color: #ff85bf;
+    text-decoration: none;
+    font-size: 13px;
+    margin-top: 22px;
+}
+
+/* ANNIVERSARY */
+
+.anniversary {
+    width: 90%;
+    max-width: 850px;
+    margin: 100px auto;
+    padding: 55px 25px;
+    text-align: center;
+    border-radius: 30px;
+    background: linear-gradient(135deg,rgba(255,90,170,0.13),rgba(130,50,180,0.12));
+    border: 1px solid rgba(255,255,255,0.13);
+}
+
+.anniversary h2 {
+    font-size: 35px;
+    margin-bottom: 15px;
+}
+
+.anniversary h2 span {
+    color: #ff85bf;
+}
+
+.anniversary p {
+    color: #d0bdcc;
+    line-height: 1.9;
+    font-size: 14px;
+}
+
+/* FOOTER */
+
+footer {
+    text-align: center;
+    padding: 35px 15px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    color: #aa91a5;
+    font-size: 12px;
+    line-height: 2;
+}
+
+/* MOBILE */
+
+@media(max-width:750px) {
+
+    .nav-links {
+        display: none;
+    }
+
+    .navbar {
+        width: 95%;
+    }
+
+    .hero {
+        min-height: 75vh;
+    }
+
+    .hero h1 {
+        font-size: 48px;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .section-title h2 {
+        font-size: 29px;
+    }
+
+    .anniversary h2 {
+        font-size: 27px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav class="navbar">
+
+    <div class="logo">
+        OUR <span>LITTLE WORLD 💗</span>
+    </div>
+
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="story.html">Our Story</a>
+        <a href="gift.html">Virtual Gifts 🎁</a>
+        <a href="memories.html">Memories</a>
+        <a href="letter.html">Secret Letter 💌</a>
+        
+    </div>
+
+    <!-- <a href="story.html">our story</a> -->
+        For Tiya ❤️
+    </a>
+
+</nav>
+
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <div class="top-tag">
+            A WORLD MADE JUST FOR YOU
+        </div>
+
+        <h1>
+            Welcome To<br>
+            Our <span>Little World.</span>
+        </h1>
+
+        <p>
+            Somewhere in this big universe, two people
+            found each other. And now, this little corner
+            of the internet belongs to their beautiful story.
+            This is our world, Tiya. ❤️
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#story" class="primary-btn">
+                Explore Our World 💗
+            </a>
+
+            <a href="#gifts" class="secondary-btn">
+                See Your Gifts 💌
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- OUR STORY -->
+
+<section class="section" id="story">
+
+    <div class="section-title">
+
+        <h2>Our <span>Little Story</span> 💞</h2>
+
+        <p>
+            Every beautiful story starts with a little moment.
+        </p>
+
+    </div>
+
+    <div class="cards">
+
+        <div class="card">
+
+            <div class="card-icon">✨</div>
+
+            <h3>The Beginning</h3>
+
+            <p>
+                The day our conversations started
+                and everything slowly became special.
+            </p>
+
+            <a href="story.html">Discover More →</a>
+
+        </div>
+
+        <div class="card">
+
+            <div class="card-icon">💗</div>
+
+            <h3>Our Memories</h3>
+
+            <p>
+                All those little talks, random smiles
+                and beautiful moments we share.
+            </p>
+             
+            <a href="memories.html">Memories →</a>
+
+        </div>
+
+        <div class="card">
+
+            <div class="card-icon">♾️</div>
+
+            <h3>Our Forever</h3>
+
+            <p>
+                More memories to create, more smiles
+                to share and more chapters to write.
+            </p>
+
+            <a href="#anniversary">Our Promise →</a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- GIFTS -->
+
+<section class="section" id="gifts">
+
+    <div class="section-title">
+
+        <h2>Little <span>Gifts For You</span> 🎁</h2>
+
+        <p>
+            Some little surprises made with lots of love.
+        </p>
+
+    </div>
+
+    <div class="cards">
+
+        <div class="card">
+
+            <div class="card-icon">💌</div>
+
+            <h3>Secret Love Letter</h3>
+
+            <p>
+                A special letter filled with all the
+                words I want you to know.
+            </p>
+
+            <a href="letter.html">Secret love Letter 💌</a>
+
+        </div>
+
+        <div class="card">
+
+            <div class="card-icon">🎀</div>
+
+            <h3>Virtual Gift</h3>
+
+            <p>
+                A little digital surprise just for
+                my favourite person.
+            </p>
+
+            <a href="gift.html">open it →</a>
+
+        </div>
+
+        <div class="card">
+
+            <div class="card-icon">🌷</div>
+
+            <h3> your test</h3>
+
+            <p>
+                A little place to keep our most
+                precious memories questions.
+            </p>
+
+            <a href="game.html">Explore →</a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- MEMORIES -->
+
+<section class="section" id="memories">
+
+    <div class="section-title">
+
+        <h2>Our <span>Beautiful Memories</span> 📸</h2>
+
+        <p>
+            Every picture tells a little story.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ANNIVERSARY -->
+
+<section class="anniversary" id="anniversary">
+
+    <h2>5 Months Of <span>Us ❤️</span></h2>
+
+    <p>
+        Five beautiful months, countless little memories
+        and a special person who makes my world brighter.
+        Happy 5 Months Anniversary, Tiya! 💗
+        <br><br>
+        This is just the beginning of our little story.
+    </p>
+
+    <br>
+
+    <a href="#home" class="primary-btn">
+        Back To Our World ↑
+    </a>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    MADE WITH LOVE, JUST FOR TIYA 💗
+
+    <br>
+
+    OUR LITTLE WORLD · FOREVER & ALWAYS
+
+</footer>
+
+
+<script>
+
+// FLOATING HEARTS
+
+function createHeart() {
+
+    let heart = document.createElement("div");
+
+    heart.className = "heart";
+
+    heart.innerHTML = ["💗","❤️","💕","💖","🦋"][
+        Math.floor(Math.random() * 5)
+    ];
+
+    heart.style.left = Math.random() * 100 + "vw";
+
+    heart.style.fontSize =
+        (15 + Math.random() * 20) + "px";
+
+    heart.style.animationDuration =
+        (5 + Math.random() * 5) + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(function() {
+        heart.remove();
+    },10000);
+
+}
+
+setInterval(createHeart,500);
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,615 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Virtual Gifts for Tiya 💗</title>
+
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #09070b;
+    color: white;
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+body::before,
+body::after {
+    content: "";
+    position: fixed;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    filter: blur(120px);
+    opacity: .2;
+    pointer-events: none;
+    z-index: -1;
+}
+
+body::before {
+    background: #ff4d9d;
+    top: 10%;
+    left: -100px;
+}
+
+body::after {
+    background: #9d4dff;
+    bottom: 0;
+    right: -100px;
+}
+
+/* NAVBAR */
+
+.navbar {
+    width: 90%;
+    margin: 25px auto;
+    padding: 18px 25px;
+    border: 1px solid #ffffff20;
+    background: #ffffff0c;
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.logo {
+    color: #ff8fc7;
+    font-size: 21px;
+    font-weight: bold;
+}
+
+.navbar a {
+    color: #ddd;
+    text-decoration: none;
+    margin-left: 15px;
+    font-size: 14px;
+}
+
+.navbar a:hover {
+    color: #ff8fc7;
+}
+
+/* HERO */
+
+.hero {
+    text-align: center;
+    padding: 70px 20px 45px;
+}
+
+.tag {
+    color: #ff8fc7;
+    letter-spacing: 4px;
+    font-size: 12px;
+}
+
+.hero h1 {
+    font-size: 48px;
+    margin: 20px 0;
+}
+
+.hero h1 span {
+    color: #ff8fc7;
+}
+
+.hero p {
+    color: #aaa;
+    line-height: 1.8;
+}
+
+/* GIFT CARDS */
+
+.gifts {
+    width: 85%;
+    max-width: 1000px;
+    margin: 30px auto 60px;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.gift-card {
+    background: #ffffff0c;
+    border: 1px solid #ffffff20;
+    backdrop-filter: blur(20px);
+    border-radius: 25px;
+    padding: 35px 25px;
+    text-align: center;
+    transition: .3s;
+}
+
+.gift-card:hover {
+    transform: translateY(-8px);
+    border-color: #ff8fc780;
+}
+
+.gift-icon {
+    font-size: 65px;
+    margin-bottom: 20px;
+}
+
+.gift-card h2 {
+    color: #ffacd5;
+    font-size: 23px;
+    margin-bottom: 12px;
+}
+
+.gift-card p {
+    color: #aaa;
+    line-height: 1.7;
+    font-size: 14px;
+    min-height: 48px;
+}
+
+.gift-card button {
+    background: #ff8fc7;
+    color: #190b13;
+    border: none;
+    border-radius: 30px;
+    padding: 12px 25px;
+    margin-top: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: .3s;
+}
+
+.gift-card button:hover {
+    background: #ffb7d9;
+    transform: scale(1.06);
+}
+
+/* SURPRISE AREA */
+
+.surprise {
+    display: none;
+    width: 85%;
+    max-width: 650px;
+    margin: 0 auto 70px;
+    padding: 35px 25px;
+
+    text-align: center;
+    background: #ff8fc715;
+    border: 1px solid #ff8fc760;
+    border-radius: 25px;
+}
+
+.surprise.show {
+    display: block;
+    animation: appear .5s ease;
+}
+
+.surprise h2 {
+    color: #ffacd5;
+    margin-bottom: 15px;
+}
+
+.surprise p {
+    color: #ddd;
+    line-height: 1.8;
+}
+
+.surprise-icon {
+    font-size: 100px;
+    margin: 15px 0 25px;
+}
+
+/* GIFT ANIMATIONS */
+
+.bounce {
+    animation: bounce 1s infinite alternate;
+}
+
+@keyframes bounce {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-20px);
+    }
+}
+
+.bloom {
+    animation: bloom 1.5s ease infinite alternate;
+}
+
+@keyframes bloom {
+    from {
+        transform: scale(.8) rotate(-10deg);
+    }
+
+    to {
+        transform: scale(1.2) rotate(10deg);
+    }
+}
+
+.mystery {
+    animation: mystery 1s infinite alternate;
+}
+
+@keyframes mystery {
+    from {
+        transform: rotate(-10deg) scale(.9);
+    }
+
+    to {
+        transform: rotate(10deg) scale(1.1);
+    }
+}
+.mystery {
+    animation: mystery 0.7s ease infinite alternate;
+}
+
+@keyframes mystery {
+    from {
+        transform: scale(1) rotate(-8deg);
+    }
+
+    to {
+        transform: scale(1.2) rotate(8deg);
+    }
+}
+
+.reveal {
+    animation: appear 0.8s ease;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* HEARTS */
+
+.heart {
+    position: fixed;
+    top: -40px;
+    font-size: 28px;
+    pointer-events: none;
+    z-index: 9999;
+    animation: fall 4s linear forwards;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* FOOTER */
+
+footer {
+    text-align: center;
+    padding: 25px;
+    color: #999;
+    border-top: 1px solid #ffffff15;
+}
+
+footer span {
+    color: #ff8fc7;
+}
+
+/* MOBILE */
+
+@media(max-width: 650px) {
+
+    .gifts {
+        grid-template-columns: 1fr;
+    }
+
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .navbar {
+        justify-content: center;
+    }
+
+    .navbar div:last-child {
+        width: 100%;
+        text-align: center;
+    }
+
+    .navbar a {
+        margin: 7px;
+        display: inline-block;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav class="navbar">
+
+    <div class="logo">♡ OUR LITTLE WORLD</div>
+
+    <div>
+        <a href="index.html">Home</a>
+        <a href="story.html">Our Story</a>
+        <a href="memories.html">Memories</a>
+        <a href="letter.html">Letter 💌</a>
+    </div>
+
+</nav>
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <div class="tag">MADE WITH LOVE</div>
+
+    <h1>Little <span>Gifts</span> 🎁</h1>
+
+    <p>
+        Tiya, tumhare liye kuch chhote-chhote surprises.
+        <br>
+        Har gift ke andar ek special message hai. 💗
+    </p>
+
+</section>
+
+<!-- GIFT CARDS -->
+
+<section class="gifts">
+
+    <div class="gift-card">
+
+        <div class="gift-icon">🧸</div>
+
+        <h2>Virtual Teddy</h2>
+
+        <p>Ek cute teddy, sirf tumhare liye.</p>
+
+        <button onclick="showGift(1)">
+            Open Gift
+        </button>
+
+    </div>
+
+    <div class="gift-card">
+
+        <div class="gift-icon">🌹</div>
+
+        <h2>Virtual Rose</h2>
+
+        <p>Ek virtual rose aur ek sweet message.</p>
+
+        <button onclick="showGift(2)">
+            Open Gift
+        </button>
+
+    </div>
+
+    <div class="gift-card">
+
+        <div class="gift-icon">💖</div>
+
+        <h2>Heart Shower</h2>
+
+        <p>Screen bhar ke hearts tumhare liye.</p>
+
+        <button onclick="showGift(3)">
+            Open Gift
+        </button>
+
+    </div>
+
+    <div class="gift-card">
+
+        <div class="gift-icon">🎁</div>
+
+        <h2>Mystery Gift</h2>
+
+        <p>Is gift ke andar ek secret surprise hai.</p>
+
+        <button onclick="showGift(4)">
+            Open Gift
+        </button>
+
+    </div>
+
+</section>
+
+<!-- SURPRISE MESSAGE -->
+
+<section class="surprise" id="surprise">
+
+    <div class="surprise-icon" id="giftIcon"></div>
+
+    <h2 id="giftTitle"></h2>
+
+    <p id="giftMessage"></p>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+    Made with <span>♡</span> for Tiya
+
+    <p style="margin-top:10px;">
+        OUR LITTLE WORLD · Virtual Gifts
+    </p>
+
+</footer>
+
+<!-- JAVASCRIPT -->
+
+<script>
+
+function showGift(number) {
+
+    let icon = document.getElementById("giftIcon");
+
+    let title = document.getElementById("giftTitle");
+
+    let message = document.getElementById("giftMessage");
+
+    let surprise = document.getElementById("surprise");
+
+
+    // TEDDY
+
+    if (number === 1) {
+
+        icon.innerHTML = "🧸";
+
+        icon.className = "surprise-icon bounce";
+
+        title.innerHTML = "Your Cute Teddy!";
+
+        message.innerHTML =
+        "Tiya, ye cute sa teddy sirf tumhare liye hai. Jab bhi ise dekho, ek pyari si smile zaroor karna. 💗";
+
+    }
+
+
+    // ROSE
+
+    else if (number === 2) {
+
+        icon.innerHTML = "🌹";
+
+        icon.className = "surprise-icon bloom";
+
+        title.innerHTML = "A Rose For You!";
+
+        message.innerHTML =
+        "Ek beautiful rose tumhare liye. Umeed hai ye tumhare din ko aur bhi special bana dega. 🌸";
+
+    }
+
+
+    // HEART SHOWER
+
+    else if (number === 3) {
+
+        icon.innerHTML = "💖";
+
+        icon.className = "surprise-icon bounce";
+
+        title.innerHTML = "Lots Of Love!";
+
+        message.innerHTML =
+        "Tiya, tumhare liye dher saari happiness aur virtual hearts! 💗";
+
+        createHearts();
+
+    }
+
+
+    // MYSTERY GIFT
+
+    else if (number === 4) {
+
+    icon.innerHTML = "🎁";
+    icon.className = "surprise-icon mystery";
+
+    title.innerHTML = "Opening Your Mystery Gift...";
+
+    message.innerHTML = "A little surprise is waiting for you! 💗";
+
+    setTimeout(function() {
+
+        icon.className = "surprise-icon reveal";
+        icon.innerHTML = "💝";
+
+        title.innerHTML = "Your Surprise Is Opened!";
+
+        message.innerHTML =
+        "Surprise Tiya! 💗 Tumhare liye ek special gift. Hamesha khush rehna aur aise hi smile karti rehna! 🥹";
+
+    }, 1500);
+
+}
+
+
+    // SHOW MESSAGE
+
+    surprise.classList.remove("show");
+
+    void surprise.offsetWidth;
+
+    surprise.classList.add("show");
+
+    surprise.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+    });
+
+}
+
+
+// HEART SHOWER FUNCTION
+
+function createHearts() {
+
+    let emojis = ["💗", "💕", "💖", "❤️", "💘"];
+
+    for (let i = 0; i < 80; i++) {
+
+        let heart = document.createElement("div");
+
+        heart.className = "heart";
+
+        heart.innerText =
+        emojis[Math.floor(Math.random() * emojis.length)];
+
+        heart.style.left = Math.random() * 100 + "vw";
+
+        heart.style.animationDuration =
+        (3 + Math.random() * 3) + "s";
+
+        heart.style.animationDelay =
+        Math.random() * 1 + "s";
+
+        document.body.appendChild(heart);
+
+        setTimeout(function() {
+
+            heart.remove();
+
+        }, 7000);
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,302 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Love Story 💗</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #09060b;
+    color: white;
+    font-family: 'Segoe UI', sans-serif;
+    padding: 30px 15px;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    width: 400px;
+    height: 400px;
+    background: #d52a84;
+    filter: blur(150px);
+    opacity: .18;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.header {
+    text-align: center;
+    padding: 65px 15px;
+}
+
+.header p {
+    color: #ff8dc8;
+    letter-spacing: 4px;
+    font-size: 11px;
+}
+
+.header h1 {
+    font-size: clamp(38px, 7vw, 65px);
+    margin: 20px 0;
+}
+
+.header h1 span {
+    color: #ff85bf;
+}
+
+.header .desc {
+    color: #c5b5c3;
+    font-size: 14px;
+}
+
+.timeline {
+    max-width: 750px;
+    margin: auto;
+    position: relative;
+}
+
+.timeline::before {
+    content: "";
+    position: absolute;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(#ff85bf,#8534b9);
+    left: 50%;
+}
+
+.item {
+    width: 50%;
+    padding: 20px 35px;
+    position: relative;
+}
+
+.item:nth-child(odd) {
+    left: 0;
+    text-align: right;
+}
+
+.item:nth-child(even) {
+    left: 50%;
+}
+
+.item::before {
+    content: "💗";
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: #241326;
+    border: 1px solid #ff85bf;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    top: 30px;
+    right: -20px;
+    z-index: 2;
+}
+
+.item:nth-child(even)::before {
+    left: -20px;
+}
+
+.content {
+    padding: 25px;
+    background: rgba(255,255,255,.07);
+    border: 1px solid rgba(255,255,255,.13);
+    border-radius: 20px;
+    transition: .3s;
+}
+
+.content:hover {
+    transform: translateY(-7px);
+    border-color: #ff85bf;
+}
+
+.content .emoji {
+    font-size: 35px;
+    margin-bottom: 15px;
+}
+
+.content h2 {
+    color: #ff9acb;
+    font-size: 19px;
+    margin-bottom: 12px;
+}
+
+.content p {
+    color: #cdbdca;
+    font-size: 13px;
+    line-height: 1.9;
+}
+
+.month {
+    color: #ff85bf;
+    font-size: 11px;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+}
+
+.final {
+    max-width: 650px;
+    margin: 90px auto 40px;
+    padding: 45px 25px;
+    text-align: center;
+    background: rgba(255,100,180,.09);
+    border: 1px solid rgba(255,255,255,.13);
+    border-radius: 25px;
+}
+
+.final h2 {
+    color: #ff85bf;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.final p {
+    color: #e4cddd;
+    line-height: 1.9;
+    font-size: 14px;
+}
+
+.back {
+    display: inline-block;
+    margin-top: 25px;
+    color: white;
+    background: #e94e9d;
+    padding: 13px 25px;
+    text-decoration: none;
+    border-radius: 30px;
+}
+
+@media(max-width:600px) {
+
+    .timeline::before {
+        left: 15px;
+    }
+
+    .item,
+    .item:nth-child(odd),
+    .item:nth-child(even) {
+        width: 100%;
+        left: 0;
+        padding: 15px 10px 15px 50px;
+        text-align: left;
+    }
+
+    .item::before,
+    .item:nth-child(even)::before {
+        left: -5px;
+        right: auto;
+    }
+
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">
+    <p>CHAPTERS OF OUR LOVE</p>
+    <h1>Our <span>Love Story</span> 💗</h1>
+    <div class="desc">
+        Every little moment is a part of our beautiful story.
+    </div>
+</div>
+
+<div class="timeline">
+
+    <div class="item">
+        <div class="content">
+            <div class="month">CHAPTER 01</div>
+            <div class="emoji">✨</div>
+            <h2>The Beginning</h2>
+            <p>
+                Ek chhoti si beginning, kuch random baatein
+                aur dheere-dheere ek special connection.
+                Kise pata tha ye itni beautiful story ban jayegi.
+            </p>
+        </div>
+    </div>
+
+    <div class="item">
+        <div class="content">
+            <div class="month">CHAPTER 02</div>
+            <div class="emoji">💬</div>
+            <h2>Endless Conversations</h2>
+            <p>
+                Random talks, silly jokes aur woh conversations
+                jinka kabhi end hi nahi hota.
+                Tumse baat karna hamesha special lagta hai.
+            </p>
+        </div>
+    </div>
+
+    <div class="item">
+        <div class="content">
+            <div class="month">CHAPTER 03</div>
+            <div class="emoji">💕</div>
+            <h2>Getting Closer</h2>
+            <p>
+                Dheere-dheere tum meri life ka ek bahut
+                important part ban gayi.
+                Har chhoti baat mein tumhari yaad aane lagi.
+            </p>
+        </div>
+    </div>
+
+    <div class="item">
+        <div class="content">
+            <div class="month">CHAPTER 04</div>
+            <div class="emoji">🦋</div>
+            <h2>Beautiful Memories</h2>
+            <p>
+                Har smile, har cute moment aur har little
+                memory hamari story ko aur beautiful banati gayi.
+            </p>
+        </div>
+    </div>
+
+    <div class="item">
+        <div class="content">
+            <div class="month">CHAPTER 05</div>
+            <div class="emoji">❤️</div>
+            <h2>Five Months Of Us</h2>
+            <p>
+                Aur ab humare 5 beautiful months complete!
+                Ye journey mere liye bahut special hai.
+                Happy 5 months, Tiya!
+            </p>
+        </div>
+    </div>
+
+</div>
+
+<div class="final">
+
+    <h2>Our Story Is Not Over ♾️</h2>
+
+    <p>
+        Ye sirf humari story ke starting chapters hain.
+        Abhi bahut saari memories banani hain,
+        bahut saari smiles share karni hain
+        aur bahut saari beautiful stories likhni hain.
+        <br><br>
+        I LOVE YOU, TIYA! 💗
+    </p>
+
+    <a href="index.html" class="back">
+        ← Back To Our World
+    </a>
+
+</div>
+
+</body>
+</html>

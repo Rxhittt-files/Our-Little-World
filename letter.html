@@ -1,0 +1,473 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Secret Love Letter 💌</title>
+
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: #09070b;
+    color: white;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+}
+
+/* Background Glow */
+
+body::before {
+    content: "";
+    position: fixed;
+    width: 350px;
+    height: 350px;
+    background: #ff4d9d;
+    filter: blur(150px);
+    opacity: 0.2;
+    top: 10%;
+    left: -100px;
+    z-index: -1;
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    width: 350px;
+    height: 350px;
+    background: #9d4dff;
+    filter: blur(150px);
+    opacity: 0.15;
+    bottom: 0;
+    right: -100px;
+    z-index: -1;
+}
+
+/* Navbar */
+
+.navbar {
+    width: 90%;
+    margin: 25px auto;
+    padding: 18px 25px;
+    border: 1px solid #ffffff20;
+    background: #ffffff0c;
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.logo {
+    color: #ff8fc7;
+    font-size: 21px;
+    font-weight: bold;
+}
+
+.navbar a {
+    color: #ddd;
+    text-decoration: none;
+    margin-left: 15px;
+    font-size: 14px;
+}
+
+.navbar a:hover {
+    color: #ff8fc7;
+}
+
+/* Main */
+
+.container {
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 20px 70px;
+    text-align: center;
+}
+
+.tag {
+    color: #ff8fc7;
+    letter-spacing: 4px;
+    font-size: 12px;
+}
+
+h1 {
+    font-size: 43px;
+    margin: 20px 0;
+}
+
+h1 span {
+    color: #ff8fc7;
+}
+
+.subtitle {
+    color: #aaa;
+    line-height: 1.7;
+    max-width: 450px;
+}
+
+/* Envelope */
+
+.envelope-area {
+    margin-top: 65px;
+    cursor: pointer;
+}
+
+.envelope {
+    width: 230px;
+    height: 150px;
+    background: #e86ba9;
+    position: relative;
+    border-radius: 8px;
+    box-shadow: 0 0 40px #ff75b955;
+    transition: 0.5s;
+}
+
+.envelope:hover {
+    transform: translateY(-8px);
+}
+
+.envelope::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-left: 115px solid transparent;
+    border-right: 115px solid transparent;
+    border-top: 90px solid #ffacd5;
+    transform-origin: top;
+    transition: 0.7s;
+    z-index: 3;
+}
+
+.envelope::after {
+    content: "💗";
+    position: absolute;
+    top: 57px;
+    left: 96px;
+    font-size: 35px;
+    z-index: 4;
+}
+
+.envelope.open::before {
+    transform: rotateX(180deg);
+}
+
+.envelope.open::after {
+    opacity: 0;
+}
+
+.envelope.open {
+    transform: translateY(15px);
+}
+
+.envelope-label {
+    margin-top: 25px;
+    color: #ffacd5;
+    font-size: 14px;
+    letter-spacing: 2px;
+}
+
+/* Letter */
+
+.letter {
+    display: none;
+    width: 100%;
+    max-width: 600px;
+    margin-top: 45px;
+    padding: 35px;
+    background: #ffffff10;
+    border: 1px solid #ff8fc750;
+    border-radius: 22px;
+    backdrop-filter: blur(25px);
+    text-align: left;
+    animation: appear 1s ease;
+}
+
+.letter.show {
+    display: block;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.letter h2 {
+    color: #ffacd5;
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 27px;
+}
+
+.letter p {
+    color: #ddd;
+    line-height: 2;
+    font-size: 15px;
+    margin-bottom: 17px;
+}
+
+.signature {
+    color: #ffacd5 !important;
+    text-align: right;
+    font-size: 18px !important;
+    margin-top: 25px;
+}
+
+/* Button */
+
+.close-btn {
+    display: none;
+    background: #ff75b9;
+    color: #160b12;
+    border: none;
+    padding: 13px 25px;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 25px;
+}
+
+.close-btn:hover {
+    background: #ffacd5;
+}
+
+/* Footer */
+
+footer {
+    text-align: center;
+    padding: 25px;
+    color: #999;
+    border-top: 1px solid #ffffff15;
+}
+
+footer span {
+    color: #ff8fc7;
+}
+
+/* Mobile */
+
+@media(max-width: 600px) {
+
+    .navbar {
+        justify-content: center;
+    }
+
+    .navbar div:last-child {
+        width: 100%;
+        text-align: center;
+    }
+
+    .navbar a {
+        margin: 7px;
+        display: inline-block;
+    }
+
+    h1 {
+        font-size: 34px;
+    }
+
+    .letter {
+        padding: 23px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- Navbar -->
+
+<nav class="navbar">
+
+    <div class="logo">♡ OUR LITTLE WORLD</div>
+
+    <div>
+        <a href="index.html">Home</a>
+        <a href="story.html">Our Story</a>
+        <a href="memories.html">Memories</a>
+    </div>
+
+</nav>
+
+
+<!-- Main Section -->
+
+<main class="container">
+
+    <div class="tag">A LITTLE SECRET FOR YOU</div>
+
+    <h1>My Secret <span>Letter</span> 💌</h1>
+
+    <p class="subtitle">
+        Tiya, there is something I want you to read.
+        A little message made just for you.
+    </p>
+
+
+    <!-- Envelope -->
+
+    <div class="envelope-area" onclick="openLetter()">
+
+        <div class="envelope" id="envelope"></div>
+
+        <div class="envelope-label" id="envelopeText">
+            CLICK TO OPEN YOUR LETTER
+        </div>
+
+    </div>
+
+
+    <!-- Letter Content -->
+
+    
+<div class="letter" id="letter">
+
+    <h2>Dear Tiya 💗</h2>
+
+    <p>
+        Pata nahi kahan se shuru karun,
+        bas itna pata hai ki mujhe bahut achha lagta hai
+        ki hum Instagram par mile aur baat karna shuru kiya.
+    </p>
+
+    <p>
+        Hamari story ek chhote se "Hi" aur "Hii"
+        se shuru hui thi.
+        Kisko pata tha ki itni chhoti si conversation
+        hamari life ki ek special memory ban jayegi. 🥹
+    </p>
+
+    <p>
+        Mujhe hamari first video call bhi yaad hai,
+        jo 2 months baad hui thi.
+        Hum dono kitne nervous the
+        aur hamari call sirf 3 minutes chali thi. 😂
+    </p>
+
+    <p>
+        Aur jab maine tumse kaha tha
+        ki tum bahut sundar lag rahi ho,
+        toh tumhara "Achha" kehna
+        mujhe aaj bhi yaad hai. 🙈
+    </p>
+
+    <p>
+        Haan, hum ek dusre se door hain,
+        aur abhi hamari ek bhi picture saath mein nahi hai.
+        Lekin iska matlab ye nahi ki hamare paas
+        yaadein nahi hain.
+    </p>
+
+    <p>
+        Main chahta hoon ki hum aise hi
+        ek dusre ke saath naye moments banate rahein,
+        naye experiences share karein
+        aur apni story ko aur beautiful banayein.
+    </p>
+
+    <p>
+        Tum meri life ki ek bahut special person ho
+        aur main hamari har chhoti-badi memory
+        ko hamesha special rakhna chahta hoon. ❤️
+    </p>
+
+    <p class="signature">
+        Hamesha tumhara, <br>
+        harshuuu ❤️
+    </p>
+
+</div>
+
+
+
+    <button class="close-btn" id="closeBtn" onclick="closeLetter()">
+        Close Letter 💌
+    </button>
+
+</main>
+
+
+<footer>
+
+    Made with <span>♡</span> for Tiya
+
+    <p style="margin-top:10px;">
+        OUR LITTLE WORLD · A Secret Letter
+    </p>
+
+</footer>
+
+
+<script>
+
+function openLetter() {
+
+    let envelope = document.getElementById("envelope");
+
+    let letter = document.getElementById("letter");
+
+    let text = document.getElementById("envelopeText");
+
+    let button = document.getElementById("closeBtn");
+
+    envelope.classList.add("open");
+
+    text.innerText = "YOUR LETTER IS OPEN 💗";
+
+    setTimeout(function() {
+
+        letter.classList.add("show");
+
+        button.style.display = "inline-block";
+
+        letter.scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+        });
+
+    }, 600);
+
+}
+
+
+function closeLetter() {
+
+    document.getElementById("letter").classList.remove("show");
+
+    document.getElementById("envelope").classList.remove("open");
+
+    document.getElementById("envelopeText").innerText =
+    "CLICK TO OPEN YOUR LETTER";
+
+    document.getElementById("closeBtn").style.display = "none";
+
+}
+
+</script>
+
+</body>
+</html>

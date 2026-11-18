@@ -1,0 +1,489 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Memories 💗</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #09070b;
+    color: white;
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Background */
+
+body::before {
+    content: "";
+    position: fixed;
+    width: 350px;
+    height: 350px;
+    background: #ff4d9d;
+    filter: blur(150px);
+    opacity: 0.18;
+    top: 10%;
+    left: -100px;
+    z-index: -1;
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    width: 350px;
+    height: 350px;
+    background: #9d4dff;
+    filter: blur(150px);
+    opacity: 0.15;
+    bottom: 0;
+    right: -100px;
+    z-index: -1;
+}
+
+/* Navbar */
+
+.navbar {
+    width: 90%;
+    margin: 25px auto;
+    padding: 18px 25px;
+    border: 1px solid #ffffff20;
+    background: #ffffff0c;
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.logo {
+    color: #ff8fc7;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.navbar a {
+    color: #ddd;
+    text-decoration: none;
+    margin-left: 18px;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.navbar a:hover {
+    color: #ff8fc7;
+}
+
+/* Hero */
+
+.hero {
+    text-align: center;
+    padding: 75px 20px 60px;
+}
+
+.tag {
+    color: #ff91c9;
+    letter-spacing: 4px;
+    font-size: 12px;
+}
+
+.hero h1 {
+    font-size: 55px;
+    margin: 22px 0;
+}
+
+.hero h1 span {
+    color: #ff8fc7;
+}
+
+.hero p {
+    color: #aaa;
+    max-width: 550px;
+    margin: auto;
+    line-height: 1.8;
+}
+
+/* Memories */
+
+.memories {
+    width: 85%;
+    max-width: 900px;
+    margin: auto;
+    padding: 20px 0 80px;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.section-title h2 {
+    font-size: 32px;
+    margin-bottom: 12px;
+}
+
+.section-title p {
+    color: #999;
+}
+
+/* Timeline */
+
+.timeline {
+    border-left: 2px solid #ff75b9;
+    margin-left: 15px;
+    padding-left: 30px;
+}
+
+.memory-card {
+    position: relative;
+    background: #ffffff0c;
+    border: 1px solid #ffffff20;
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    padding: 28px;
+    margin-bottom: 30px;
+    transition: 0.3s;
+}
+
+.memory-card:hover {
+    transform: translateX(7px);
+    border-color: #ff75b980;
+    background: #ffffff12;
+}
+
+.memory-card::before {
+    content: "";
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    background: #ff75b9;
+    border-radius: 50%;
+    left: -39px;
+    top: 30px;
+    box-shadow: 0 0 15px #ff75b9;
+}
+
+.emoji {
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+
+.memory-card h3 {
+    font-size: 23px;
+    margin-bottom: 12px;
+    color: #ffacd5;
+}
+
+.memory-card p {
+    color: #c4c4c4;
+    line-height: 1.8;
+    font-size: 15px;
+}
+
+.chat {
+    background: #ffffff0c;
+    padding: 15px;
+    border-radius: 14px;
+    margin-top: 18px;
+}
+
+.chat p {
+    margin: 8px 0;
+    color: white;
+}
+
+.chat .you {
+    color: #ffacd5;
+}
+
+.chat .tiya {
+    color: #c8a7ff;
+}
+
+/* Special note */
+
+.special {
+    width: 85%;
+    max-width: 750px;
+    margin: 0 auto 80px;
+    text-align: center;
+    padding: 40px 25px;
+    border: 1px solid #ff8fc750;
+    background: #ff8fc710;
+    border-radius: 25px;
+    backdrop-filter: blur(20px);
+}
+
+.special h2 {
+    color: #ffacd5;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.special p {
+    color: #ccc;
+    line-height: 1.9;
+}
+
+/* Footer */
+
+footer {
+    text-align: center;
+    padding: 30px;
+    color: #999;
+    border-top: 1px solid #ffffff15;
+}
+
+footer span {
+    color: #ff8fc7;
+}
+
+/* Mobile */
+
+@media(max-width: 600px) {
+
+    .navbar {
+        justify-content: center;
+        text-align: center;
+    }
+
+    .navbar div:last-child {
+        width: 100%;
+    }
+
+    .navbar a {
+        margin: 7px;
+        display: inline-block;
+    }
+
+    .hero h1 {
+        font-size: 38px;
+    }
+
+    .memories {
+        width: 88%;
+    }
+
+    .memory-card {
+        padding: 20px;
+    }
+
+    .memory-card h3 {
+        font-size: 20px;
+    }
+
+    .special {
+        width: 88%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- Navbar -->
+
+<nav class="navbar">
+
+    <div class="logo">♡ OUR LITTLE WORLD</div>
+
+    <div>
+        <a href="index.html">Home</a>
+        <a href="story.html">Our Story</a>
+        <a href="memories.html">Memories</a>
+    </div>
+
+</nav>
+
+
+<!-- Hero Section -->
+
+<section class="hero">
+
+    <div class="tag">OUR LITTLE UNIVERSE</div>
+
+    <h1>Our <span>Memories</span> 💗</h1>
+
+    <p>
+        We may not have pictures together,
+        but we have moments, conversations
+        and memories that deserve their own place.
+    </p>
+
+</section>
+
+
+<!-- Memories Timeline -->
+
+<section class="memories">
+
+    <div class="section-title">
+
+        <h2>How It All Started ✨</h2>
+
+        <p>Every little moment has a story.</p>
+
+    </div>
+
+
+    <div class="timeline">
+
+
+        <!-- Memory 1 -->
+
+        <div class="memory-card">
+
+            <div class="emoji">💌</div>
+
+            <h3>Our First Instagram Message</h3>
+
+            <p>
+                Every story has a beginning.
+                Ours started with two little words.
+            </p>
+
+            <div class="chat">
+
+                <p class="you">You: Hi</p>
+
+                <p class="tiya">Tiya: Hii 💗</p>
+
+            </div>
+
+            <p style="margin-top:15px;">
+                A simple hello that started our little story.
+            </p>
+
+        </div>
+
+
+        <!-- Memory 2 -->
+
+        <div class="memory-card">
+
+            <div class="emoji">📱</div>
+
+            <h3>Our First Video Call</h3>
+
+            <p>
+                After two months of Instagram conversations,
+                we finally had our first video call.
+            </p>
+
+            <p style="margin-top:12px;">
+                Both of us were nervous, and guess what?
+                Our first video call lasted just 3 minutes! 😂
+            </p>
+
+            <div class="chat">
+
+                <p class="you">
+                    You: Tum bahut sundar lag rahi ho ❤️
+                </p>
+
+                <p class="tiya">
+                    Tiya: Achha 🙈
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- Memory 3 -->
+
+        <div class="memory-card">
+
+            <div class="emoji">🌙</div>
+
+            <h3>Our Little Conversations</h3>
+
+            <p>
+                Distance may keep us in different places,
+                but our conversations give us moments
+                to share with each other.
+            </p>
+
+            <p style="margin-top:12px;">
+                Every message and every video call
+                becomes another little memory.
+            </p>
+
+        </div>
+
+
+        <!-- Memory 4 -->
+
+        <div class="memory-card">
+
+            <div class="emoji">🌍</div>
+
+            <h3>Miles Apart, Still Connected</h3>
+
+            <p>
+                We started talking on Instagram.
+                We don't have pictures together yet,
+                but our story is still being written.
+            </p>
+
+            <p style="margin-top:12px;">
+                This page is a little collection of
+                the moments we never want to forget. 💗
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- Special Note -->
+
+<section class="special">
+
+    <h2>For Tiya 💗</h2>
+
+    <p>
+        Maybe we don't have hundreds of pictures together,
+        but we have our own little story.
+
+        <br><br>
+
+        From our first Hi to our first video call,
+        every little moment is worth remembering.
+
+        <br><br>
+
+        And this is only the beginning...
+        ✨
+    </p>
+
+</section>
+
+
+<!-- Footer -->
+
+<footer>
+
+    Made with <span>♡</span> for Tiya
+
+    <p style="margin-top:10px;">
+        OUR LITTLE WORLD · Just Our Story
+    </p>
+
+</footer>
+
+
+</body>
+</html>
